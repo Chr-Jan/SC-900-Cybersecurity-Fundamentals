@@ -55,3 +55,7 @@ What is common between all Microsoft Entra chocies is
 | **Microsoft Entra ID P1** | Adds Conditional Access, hybrid identity synchronization (Entra Connect/Cloud Sync), and advanced group management. Included in M365 E3 / Business Premium. |
 | **Microsoft Entra ID P2** | Adds risk-based Conditional Access, Entra ID Protection, and Privileged Identity Management (PIM). Included in M365 E5. |
 | **Microsoft Entra Suite** | A bundled license combining comprehensive identity and network access protection (requires Entra ID P1). Includes Private Access, Internet Access, ID Governance, ID Protection, and advanced Verified ID features. |
+
+### Microsoft Entra admin center
+
+Administrators configure and manage all Microsoft Entra products from web-based portal called Microsoft Entra admin center.
