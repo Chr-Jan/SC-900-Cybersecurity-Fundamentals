@@ -24,15 +24,14 @@ Structured study notes, definitions, and exam prep for the Microsoft SC-900 Secu
 
 ## Microsoft Entra
 
-What is common between all Microsoft Entra chocies is
-
+What is common between all Microsoft Entra choices is:
 - Establish Zero Trust access controls
 - Secure access for employees
 - Secure access for customers and partners
 - Secure access in any cloud
 - Secure access for AI agents
 
-### Entra models
+### Entra Models
 
 | Product / Feature | What it does |
 | :--- | :--- |
@@ -45,9 +44,9 @@ What is common between all Microsoft Entra chocies is
 | **Microsoft Entra Private Access** | Secure access to on-premises apps without a VPN |
 | **Microsoft Entra External ID** | External identities access business resources and consumer apps (B2B/CIAM) |
 | **Microsoft Entra Workload ID** | Identity and access management solution for workload identities (apps/containers) |
-| **Microsoft Entra Agent ID** | Identity and security framework for nonhuman AI agent identities. |
+| **Microsoft Entra Agent ID** | Identity and security framework for nonhuman AI agent identities |
 
-### Microsoft Entra licensing
+### Microsoft Entra Licensing
 
 | License Tier | What it includes |
 | :--- | :--- |
@@ -56,6 +55,27 @@ What is common between all Microsoft Entra chocies is
 | **Microsoft Entra ID P2** | Adds risk-based Conditional Access, Entra ID Protection, and Privileged Identity Management (PIM). Included in M365 E5. |
 | **Microsoft Entra Suite** | A bundled license combining comprehensive identity and network access protection (requires Entra ID P1). Includes Private Access, Internet Access, ID Governance, ID Protection, and advanced Verified ID features. |
 
-### Microsoft Entra admin center
+### Microsoft Entra Admin Center
 
-Administrators configure and manage all Microsoft Entra products from web-based portal called Microsoft Entra admin center.
+Administrators configure and manage all Microsoft Entra products from a web-based portal called the Microsoft Entra admin center.
+
+### Microsoft Entra External ID & Tenant Types
+
+| Tenant Configuration / Feature | What it does |
+| :--- | :--- |
+| **Workforce Tenant** | Configured for employees, internal apps, and resources. Allows inviting external business partners and guests. |
+| **External Tenant** | Configured exclusively for publishing apps to consumers and business customers (CIAM). |
+| **External ID B2B Collaboration** | Allows workforce to share apps/services with external partners/guests using their own home credentials (no local guest passwords). |
+| **External ID CIAM (Consumer)** | Adds customer identity and access management, self-service registration, and social logins (Google, Facebook) to consumer apps. |
+| **B2B Direct Connect** | Creates a mutual trust relationship between two Entra organizations (enables Teams Connect shared channels without adding users as guests). |
+
+### Hybrid Identity & Synchronization
+
+| Concept / Tool | Short Description |
+| :--- | :--- |
+| **Hybrid Identity** | Common user identity across on-premises and cloud apps. |
+| **Inter-directory Provisioning** | Copying/provisioning identities between two directory systems (e.g., Local AD to Entra ID). |
+| **Synchronization** | Keeping local and cloud user/group data matching. |
+| **Microsoft Entra Cloud Sync** | Microsoft's recommended tool, uses lightweight local agent, managed in the cloud. |
+| **Microsoft Entra Connect Sync** | Older synchronization tool being replaced by Cloud Sync. |
+| | **SCIM (System for Cross-domain Identity Management)** | Open standard used by Cloud Sync to automate user provisioning. |
