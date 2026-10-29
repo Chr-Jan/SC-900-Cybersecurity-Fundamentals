@@ -1,6 +1,15 @@
 # SC-900-Cybersecurity-Fundamentals
 Structured study notes, definitions, and exam prep for the Microsoft SC-900 Security, Compliance, and Identity Fundamentals certification.
 
+## Basic Terminology & Core Concepts
+
+| Concept | Short Description |
+| :--- | :--- |
+| **Tenant** | An instance of Microsoft Entra ID holding organizational objects (users, groups, devices, apps) and policies; serves as a security and administrative boundary. |
+| **Directory** | A logical container within a tenant that holds and organizes identities and resources (one tenant consists of one directory). |
+| **Multi-tenant** | An organization that has more than one instance of Microsoft Entra ID (e.g., due to mergers, subsidiaries, or compliance). |
+| **Identity Secure Score** | A percentage indicating how closely your configuration aligns with Microsoft's security best practice recommendations. |
+
 ## Security and Compliance Concepts
 
 ### Shared Responsibility Model
@@ -35,7 +44,7 @@ What is common between all Microsoft Entra choices is:
 
 | Product / Feature | What it does |
 | :--- | :--- |
-| **Microsoft Entra ID** | Authenticates employees, sign-on to corporate apps, cloud-based |
+| **Microsoft Entra ID** | Cloud-based IAM service that authenticates users and secures access to cloud/on-prem apps |
 | **Microsoft Entra Domain Services** | Domain services for old applications, cloud-based, Windows Server Active Directory |
 | **Microsoft Entra Verified ID** | Credential verification service based on decentralized standards |
 | **Microsoft Entra ID Governance** | Automatically provisions access based on the employee's role and lifecycle |
@@ -124,3 +133,64 @@ What is common between all Microsoft Entra choices is:
 | :--- | :--- |
 | **Security Groups** | Used to manage user and device access to shared resources (can include users, devices, groups, service principals, and agent identities). |
 | **Microsoft 365 Groups** | Used for grouping users according to collaboration needs (shared mailboxes, SharePoint, calendars). |
+
+## Authentication Methods
+
+### Core Authentication Concepts
+
+| Concept | Description |
+| :--- | :--- |
+| **Authentication** | The process of verifying a person's or object's identity before granting access to resources. |
+| **Passwords** | The most common authentication method, but vulnerable to compromises; should be replaced or supplemented. |
+| **Phishing-Resistant Authentication** | Highly secure methods (using public key cryptography) bound to a specific domain, making them immune to AI-driven phishing sites. Includes Windows Hello, FIDO2, and Certificate-Based Auth. |
+
+### Traditional & Secondary Methods
+
+| Method | Description |
+| :--- | :--- |
+| **SMS-Based Sign-in** | Uses text messages with verification codes (not recommended by Microsoft for MFA due to security risks). |
+| **Voice Call Verification** | Automated phone call where the user presses `#` on their keypad (secondary factor for MFA/SSPR). |
+| **OATH Tokens** | Open standard for Time-based One-Time Password (TOTP) codes. Available as software apps or hardware key fobs. |
+| **Temporary Access Pass (TAP)** | A time-limited passcode issued by admins to onboard new users or recover lost credentials. |
+| **QR Code Authentication** | Allows frontline workers on shared devices to sign in by scanning a badge QR code and entering a PIN. |
+
+### Passwordless Authentication Options
+
+| Passwordless Method | Description |
+| :--- | :--- |
+| **Windows Hello for Business** | Replaces passwords on devices using a key/certificate tied to hardware, combined with a PIN or biometrics. |
+| **Passkeys (FIDO2)** | Phishing-resistant method using public-key cryptography. Available as **Device-bound** (stored locally on a secure key/device) or **Synced** (synced across devices via a cloud provider). |
+| **Microsoft Authenticator** | Versatile app supporting number-matching push notifications, passwordless sign-in, and generated OATH codes. |
+| **Certificate-Based Auth (CBA)** | Allows users to authenticate directly with X.509 certificates, eliminating the need for federated infrastructure like AD FS. |
+
+## Multifactor Authentication (MFA)
+
+### MFA Core Factors & Principles
+
+| Factor / Concept | Description |
+| :--- | :--- |
+| **Multifactor Authentication (MFA)** | Requires two or more verification methods from separate categories to confirm identity, stopping >99.9% of common identity-related attacks. |
+| **Something You Know** | Typically a password or PIN. |
+| **Something You Have** | A trusted device that is not easily duplicated, such as a phone, hardware key, or token. |
+| **Something You Are** | Biometrics, such as a fingerprint scan or facial recognition. |
+
+### Supported MFA Verification Methods
+
+| Verification Method | Description / Usage |
+| :--- | :--- |
+| **Microsoft Authenticator** | App-based push notifications (with number matching), OATH codes, and passkeys. |
+| **Authenticator Lite (in Outlook)** | Built-in MFA capability directly inside the Outlook mobile app. |
+| **Windows Hello for Business** | Strong biometric/PIN authentication bound to the device hardware. |
+| **Passkeys (FIDO2) & Authenticator Passkeys** | Phishing-resistant hardware or app-bound keys using public-key cryptography. |
+| **Certificate-based Authentication** | X.509 certificates used directly for authentication and MFA. |
+| **External Authentication Methods** | Integration with third-party MFA providers (like Duo or RSA). |
+| **Temporary Access Pass (TAP)** | Time-limited passcode for onboarding or account recovery. |
+| **OATH Tokens (Software & Hardware)** | Time-based one-time password (TOTP) tokens via apps or dedicated hardware key fobs. |
+| **SMS & Voice Call** | Text messages or automated voice calls (discouraged by Microsoft due to security vulnerabilities). |
+
+### MFA Enforcement & Policies
+
+| Policy / Mechanism | Description |
+| :--- | :--- |
+| **Security Defaults** | Pre-configured baseline security settings **enabled by default on new tenants**. Automatically enforces MFA registration/prompts, blocks legacy authentication, and protects privileged access at no extra cost. |
+| **Conditional Access** | Advanced, granular policies (**requires Entra ID P1 or P2 licenses**) that allow administrators to define rules requiring MFA based on specific conditions like user location, device state, risk level, or application sensitivity. |
