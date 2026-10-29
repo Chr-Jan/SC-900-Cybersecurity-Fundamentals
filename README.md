@@ -192,5 +192,5 @@ What is common between all Microsoft Entra choices is:
 
 | Policy / Mechanism | Description |
 | :--- | :--- |
-| **Security Defaults** | Pre-configured baseline security settings **enabled by default on new tenants**. Automatically enforces MFA registration/prompts, blocks legacy authentication, and protects privileged access at no extra cost. |
+| **Security Defaults** | **Free and enabled by default on new tenants.** Pre-configured baseline security settings that automatically enforce MFA, block legacy authentication, and protect privileged access. However, they are **all-or-nothing (inflexible)** and allow no custom exceptions. |
 | **Conditional Access** | Advanced, granular policies (**requires Entra ID P1 or P2 licenses**) that allow administrators to define rules requiring MFA based on specific conditions like user location, device state, risk level, or application sensitivity. |
