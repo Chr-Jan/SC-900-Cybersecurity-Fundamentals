@@ -12,7 +12,6 @@ Structured study notes, definitions, and exam prep for the Microsoft SC-900 Secu
 | **PaaS** | Application Code, Configurations, Access Control, **Data** | Infrastructure, OS, Runtime Environment |
 | **SaaS** | Identity & Access Management (IAM), Tenant Configurations, **Data** | Entire Application Stack & Infrastructure |
 
-
 ### Responsibilities You Always Retain
 
 | Always Your Responsibility | What it includes |
@@ -24,6 +23,7 @@ Structured study notes, definitions, and exam prep for the Microsoft SC-900 Secu
 
 ## Microsoft Entra
 
+### Common Objectives
 What is common between all Microsoft Entra choices is:
 - Establish Zero Trust access controls
 - Secure access for employees
@@ -57,7 +57,9 @@ What is common between all Microsoft Entra choices is:
 
 ### Microsoft Entra Admin Center
 
-Administrators configure and manage all Microsoft Entra products from a web-based portal called the Microsoft Entra admin center.
+| Tool / Portal | Purpose |
+| :--- | :--- |
+| **Microsoft Entra Admin Center** | Centralized web-based portal where administrators configure and manage all Microsoft Entra products. |
 
 ### Microsoft Entra External ID & Tenant Types
 
@@ -78,4 +80,47 @@ Administrators configure and manage all Microsoft Entra products from a web-base
 | **Synchronization** | Keeping local and cloud user/group data matching. |
 | **Microsoft Entra Cloud Sync** | Microsoft's recommended tool, uses lightweight local agent, managed in the cloud. |
 | **Microsoft Entra Connect Sync** | Older synchronization tool being replaced by Cloud Sync. |
-| | **SCIM (System for Cross-domain Identity Management)** | Open standard used by Cloud Sync to automate user provisioning. |
+| **SCIM** | Open standard used by Cloud Sync to automate user provisioning. |
+
+## Identities
+
+### Identity Types
+
+| Category | Description |
+| :--- | :--- |
+| **Users** | Human identities representing employees, partners, and customers. |
+| **Devices** | Hardware assets like mobile devices, laptops, servers, or printers. |
+| **Workload Identities** | Software objects like applications, virtual machines, services, and containers. |
+
+### User Types & Membership
+
+| User Property / Classification | Description |
+| :--- | :--- |
+| **Internal Member** | Employees of the organization who authenticate internally via Entra ID (UserType: Member). |
+| **External Guest** | External partners, vendors, or consultants using external credentials (UserType: Guest). |
+| **External Member** | Users from a partner tenant given member-level access in another tenant. |
+| **Internal Guest** | Legacy scenario where external users are given internal accounts designated as guests. |
+
+### Workload & Managed Identities
+
+| Concept | Description |
+| :--- | :--- |
+| **Workload Identity** | Assigned to software workloads to authenticate and access resources securely. |
+| **Managed Identities** | Service principals where Azure automatically manages credentials, removing developer overhead. |
+| **System-assigned Managed Identity** | Enabled directly on an Azure resource; lifecycle is tied to the resource (deleted automatically if resource is deleted). |
+| **User-assigned Managed Identity** | Created as a standalone Azure resource that can be assigned to one or more services; must be deleted manually. |
+
+### Device Identities
+
+| Device Join Type | Description |
+| :--- | :--- |
+| **Microsoft Entra Registered** | Designed for Bring Your Own Device (BYOD) or mobile device scenarios using personal devices. |
+| **Microsoft Entra Joined** | Devices joined to Entra ID through an organizational account, generally owned by the company. |
+| **Microsoft Entra Hybrid Joined** | Devices joined to both on-premises Active Directory and Microsoft Entra ID. |
+
+### Groups
+
+| Group Type | Purpose |
+| :--- | :--- |
+| **Security Groups** | Used to manage user and device access to shared resources (can include users, devices, groups, service principals, and agent identities). |
+| **Microsoft 365 Groups** | Used for grouping users according to collaboration needs (shared mailboxes, SharePoint, calendars). |
