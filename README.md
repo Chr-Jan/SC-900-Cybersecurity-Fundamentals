@@ -194,3 +194,128 @@ What is common between all Microsoft Entra choices is:
 | :--- | :--- |
 | **Security Defaults** | **Free and enabled by default on new tenants.** Pre-configured baseline security settings that automatically enforce MFA, block legacy authentication, and protect privileged access. However, they are **all-or-nothing (inflexible)** and allow no custom exceptions. |
 | **Conditional Access** | Advanced, granular policies (**requires Entra ID P1 or P2 licenses**) that allow administrators to define rules requiring MFA based on specific conditions like user location, device state, risk level, or application sensitivity. |
+
+## Self-Service Password Reset (SSPR)
+
+### SSPR Core Concepts & Requirements
+
+| Concept / Requirement | Description |
+| :--- | :--- |
+| **Self-Service Password Reset (SSPR)** | Allows users to change or reset their password without administrator or help desk involvement, reducing help desk calls. |
+| **License Requirement** | Users must be assigned a Microsoft Entra ID license. |
+| **Admin Configuration** | Users must be explicitly enabled for SSPR by an administrator. |
+| **Registration Requirement** | Users must register required authentication methods beforehand (two or more methods are recommended). |
+
+### Supported SSPR Authentication Methods
+
+| Authentication Method | Description / Notes |
+| :--- | :--- |
+| **Microsoft Authenticator Push** | Push notifications for verification. |
+| **Software OATH Tokens** | App-generated TOTP codes. |
+| **Hardware OATH Tokens** | Hardware-based TOTP tokens (preview). |
+| **SMS & Voice Call** | Text messages or automated phone calls with codes. |
+| **Email OTP** | One-time passcode sent to an external/secondary email address. |
+| **Security Questions** | **Retiring in March 2027** (organizations should migrate users away from this method). |
+
+### SSPR Administration, Hybrid Integration & Recovery
+
+| Feature / Concept | Description |
+| :--- | :--- |
+| **Registration & Reconfirmation** | Admins can force users to register for SSPR upon sign-in and require users to reconfirm their authentication info periodically (0 to 730 days). |
+| **Notifications** | Automated email alerts sent to users when their password is changed, and to global admins when another admin resets their password. |
+| **Password Writeback (Hybrid)** | Allows password changes/resets made in the cloud (Entra ID) to be instantly written back to an on-premises Active Directory via Entra Cloud Sync. |
+| **Account Recovery** | For **total lockouts** where users lost access to all MFA methods. Uses an Identity Verification (IDV) provider (like Entra Verified ID with Face Check) to match a real-time selfie against a government-issued ID without human intervention. |
+
+## Identity as the Primary Security Perimeter
+
+### Network Perimeter vs. Identity Perimeter
+* **Traditional Perimeter:** Enforced by firewalls and VPNs; trusted traffic based on network location (inside vs. outside).
+* **Identity Perimeter:** Enforces access based on verified identity (user, device, workload, AI agent) regardless of network location. Core to the **Zero Trust** strategy.
+
+### The 4 Modern Identity Types
+| Identity Type | Scope & Description |
+| :--- | :--- |
+| **Human Identities** | Employees, contractors, partners, and customers signing in to access resources. |
+| **Device Identities** | Laptops, mobile devices, IoT hardware enrolled and checked for management and compliance. |
+| **Workload Identities** | Non-human software processes, containers, services, and applications accessing APIs and data. |
+| **Agent Identities** | Autonomous and assistive AI agents interacting with systems on behalf of users or processes. |
+
+### The 4 Pillars of Identity Infrastructure
+| Pillar | Purpose | Key Capabilities |
+| :--- | :--- | :--- |
+| **Administration** | Identity lifecycle and governance | Provisioning, role updates, deprovisioning, policy definition. |
+| **Authentication** | Identity verification | Passwords, MFA, Passkeys (FIDO2), Certificate-Based Auth. |
+| **Authorization** | Granular access control | Role-Based Access Control (RBAC), Conditional Access, Principle of Least Privilege. |
+| **Auditing** | Tracking and accountability | Sign-in logs, audit logs, anomaly detection, forensic reporting. |
+
+## Modern Authentication & The Identity Provider (IdP)
+
+### Core Role of an IdP
+* **Definition:** A centralized service that creates, stores, and manages identity data, providing authentication, authorization, and auditing to relying applications.
+* **Delegation:** Applications offload credential validation and security policies to the IdP, eliminating local user databases and fragmented password policies.
+
+### Security Tokens & Claims
+* **Claims:** Statements made about an entity inside a token (e.g., `user_id`, `email`, `role`, `exp`).
+* **ID Token:** Serves as proof of **authentication**; tells the application *who* signed in.
+* **Access Token:** Serves as proof of **authorization**; permits access to specific APIs/resources on the user's behalf.
+* **Lifespan:** Tokens are strictly time-limited to mitigate the blast radius of token theft.
+
+### Authentication & Authorization Protocols
+| Protocol | Purpose | Key Mechanism |
+| :--- | :--- | :--- |
+| **OAuth 2.0** | **Authorization** | Issues access tokens to call protected APIs |
+| **OpenID Connect (OIDC)** | **Authentication** | Built on OAuth 2.0; issues ID tokens containing user profile claims |
+| **SAML** | Enterprise Auth & SSO | XML-based token exchange; standard for legacy/on-premises federation |
+
+### Single Sign-On (SSO) Benefits
+* **Frictionless Access:** Sign in once, access all relying applications without repeated prompts.
+* **Attack Surface Reduction:** Minimizes credential prompts, combating password fatigue and credential phishing.
+* **Centralized Revocation:** Disabling an account in the IdP immediately revokes access across all integrated enterprise applications.
+
+## Directory Services & Active Directory
+
+### Directory vs. Directory Service
+* **Directory:** A structured hierarchical database storing metadata about network objects (users, devices, groups, resources).
+* **Directory Service:** The software platform that stores directory data and makes it accessible for authentication and authorization.
+
+### Active Directory Domain Services (AD DS)
+* **Role:** Centralized on-premises directory service for Windows Server domain environments.
+* **Domain Controller (DC):** The server running the AD DS role that authenticates users and enforces security policies.
+* **Core Mechanisms:**
+  * **Kerberos & NTLM:** Native protocols for user and service authentication.
+  * **LDAP / LDAPS:** Protocol used to query and modify directory objects.
+  * **Group Policy (GPO):** Centralized policy framework to enforce device and user configurations.
+  * **Organizational Units (OUs):** Hierarchical containers used to organize objects and apply GPOs.
+
+### Why AD DS Falls Short for Cloud Environments
+* **Protocol Incompatibility:** Relies on Kerberos/NTLM/LDAP rather than modern web protocols (OAuth 2.0, OIDC, SAML).
+* **Network Boundary:** Requires direct line-of-sight or VPN to a Domain Controller to authenticate.
+* **Device Limitations:** Designed primarily for Windows-joined domain machines, lacking native mobile (iOS/Android) management.
+* **Cloud Workloads:** Cannot natively authenticate SaaS or third-party cloud apps without federation or sync tooling.
+
+### AD DS vs. Microsoft Entra ID
+| Feature | Active Directory (AD DS) | Microsoft Entra ID |
+| :--- | :--- | :--- |
+| **Architecture** | On-premises (Domain Controllers) | Multi-tenant cloud IDaaS |
+| **Protocols** | Kerberos, NTLM, LDAP | OAuth 2.0, OpenID Connect, SAML, Graph API |
+| **Connection** | Corporate LAN or VPN | Internet-accessible (HTTPS) |
+| **Device Model** | AD Domain Join | Entra Registered, Joined, Hybrid Joined |
+| **Hierarchy** | Forests, Domains, OUs | Flat structure within a Tenant |
+| **Hybrid Sync** | Master identity source in hybrid setups | Synchronized via Entra Cloud Sync / Connect |
+
+## Identity Federation
+
+### Definition & Purpose
+* **Federation:** Establishing a trust relationship between separate Identity Providers (IdPs) to enable cross-domain access without creating separate user accounts.
+* **Core Value:** Users authenticate once at their home IdP; external resource IdPs accept the home IdP's security tokens.
+
+### Key Characteristics
+* **One-Way vs. Two-Way:** Trust relationships are **not automatically bidirectional**. If Org A trusts Org B, Org B does not automatically trust Org A unless explicitly configured.
+* **Standardized Protocols:** Built on open standards like SAML, WS-Federation, and OpenID Connect to guarantee cross-vendor interoperability.
+
+### Primary Federation Scenarios
+| Scenario | Implementation & Benefit |
+| :--- | :--- |
+| **B2B Collaboration** | Two organizations establish IdP trust so partners use native corporate credentials to access shared internal resources. |
+| **Consumer / Social Logins** | External apps trust social providers (Google, GitHub, Microsoft) to streamline onboarding without local account creation. |
+| **On-Premises Hybrid (AD FS)** | Active Directory Federation Services projects on-prem AD DS identities to cloud services using secure token exchanges. |
