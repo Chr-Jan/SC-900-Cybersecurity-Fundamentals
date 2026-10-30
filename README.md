@@ -87,7 +87,7 @@ What is common between all Microsoft Entra choices is:
 | **Hybrid Identity** | Common user identity across on-premises and cloud apps. |
 | **Inter-directory Provisioning** | Copying/provisioning identities between two directory systems (e.g., Local AD to Entra ID). |
 | **Synchronization** | Keeping local and cloud user/group data matching. |
-| **Microsoft Entra Cloud Sync** | Microsoft's recommended tool, uses lightweight local agent, managed in the cloud. |
+| **Microsoft Entra Cloud Sync** | Microsoft's recommended tool; uses lightweight local agents managed in the cloud, utilizing SCIM for automated provisioning. |
 | **Microsoft Entra Connect Sync** | Older synchronization tool being replaced by Cloud Sync. |
 | **SCIM** | Open standard used by Cloud Sync to automate user provisioning. |
 
@@ -226,11 +226,45 @@ What is common between all Microsoft Entra choices is:
 | **Password Writeback (Hybrid)** | Allows password changes/resets made in the cloud (Entra ID) to be instantly written back to an on-premises Active Directory via Entra Cloud Sync. |
 | **Account Recovery** | For **total lockouts** where users lost access to all MFA methods. Uses an Identity Verification (IDV) provider (like Entra Verified ID with Face Check) to match a real-time selfie against a government-issued ID without human intervention. |
 
+## Microsoft Entra Agent ID
+
+### Core Concepts & Challenges for AI Agents
+
+| Concept / Challenge | Description |
+| :--- | :--- |
+| **Microsoft Entra Agent ID** | An identity and security framework designed specifically for AI agents to authenticate, authorize, govern, and protect them at enterprise scale. |
+| **Expanded Attack Surface** | AI agents interact with external systems and are vulnerable to attacks like prompt injection. |
+| **Permission Risks** | Agents are often provisioned with broad permissions, risking excessive data access. |
+| **Agent Sprawl** | Uncontrolled expansion of agents without visibility, management, or lifecycle controls. |
+
+### Blueprint-to-Identity Model
+
+| Component | Description |
+| :--- | :--- |
+| **Agent Identity Blueprints** | Reusable templates defining a class of agent, holding credentials and allowing admins to apply policies to all agents of that type. |
+| **Agent Identities** | Individual instances created from a blueprint (with a unique ID, display name, and a human sponsor/owner). They rely on blueprints for tokens. |
+| **Platform-Agnostic** | Integrates with both Microsoft and non-Microsoft agent platforms (e.g., AWS Bedrock, n8n) using the Auth SDK or workload identity federation. |
+
+### Authentication Scenarios
+
+| Authentication Pattern | Description |
+| :--- | :--- |
+| **Attended (On-behalf-of)** | The agent operates on behalf of a human user, using delegated user permissions and acting under their authority. |
+| **Unattended** | The agent acts autonomously under its own identity, using its own assigned roles and permissions without a user present. |
+
+### Governance, Security & Least Privilege
+
+| Feature / Security Rule | Description |
+| :--- | :--- |
+| **Conditional Access & Risk Detection** | Applies policy-based access controls, risk evaluation, and real-time threat detection specifically for agents. |
+| **Identity Governance & Registry** | Provides lifecycle management, compliance reporting, centralized metadata management, and secure agent discovery via human sponsors. |
+| **Principle of Least Privilege** | Agents are strictly blocked from high-privilege roles, and users/admins can't consent to powerful permissions, minimizing escalation risks. |
+
 ## Identity as the Primary Security Perimeter
 
 ### Network Perimeter vs. Identity Perimeter
-* **Traditional Perimeter:** Enforced by firewalls and VPNs; trusted traffic based on network location (inside vs. outside).
-* **Identity Perimeter:** Enforces access based on verified identity (user, device, workload, AI agent) regardless of network location. Core to the **Zero Trust** strategy.
+- **Traditional Perimeter:** Enforced by firewalls and VPNs; trusted traffic based on network location (inside vs. outside).
+- **Identity Perimeter:** Enforces access based on verified identity (user, device, workload, AI agent) regardless of network location. Core to the **Zero Trust** strategy.
 
 ### The 4 Modern Identity Types
 | Identity Type | Scope & Description |
@@ -251,14 +285,14 @@ What is common between all Microsoft Entra choices is:
 ## Modern Authentication & The Identity Provider (IdP)
 
 ### Core Role of an IdP
-* **Definition:** A centralized service that creates, stores, and manages identity data, providing authentication, authorization, and auditing to relying applications.
-* **Delegation:** Applications offload credential validation and security policies to the IdP, eliminating local user databases and fragmented password policies.
+- **Definition:** A centralized service that creates, stores, and manages identity data, providing authentication, authorization, and auditing to relying applications.
+- **Delegation:** Applications offload credential validation and security policies to the IdP, eliminating local user databases and fragmented password policies.
 
 ### Security Tokens & Claims
-* **Claims:** Statements made about an entity inside a token (e.g., `user_id`, `email`, `role`, `exp`).
-* **ID Token:** Serves as proof of **authentication**; tells the application *who* signed in.
-* **Access Token:** Serves as proof of **authorization**; permits access to specific APIs/resources on the user's behalf.
-* **Lifespan:** Tokens are strictly time-limited to mitigate the blast radius of token theft.
+- **Claims:** Statements made about an entity inside a token (e.g., `user_id`, `email`, `role`, `exp`).
+- **ID Token:** Serves as proof of **authentication**; tells the application *who* signed in.
+- **Access Token:** Serves as proof of **authorization**; permits access to specific APIs/resources on the user's behalf.
+- **Lifespan:** Tokens are strictly time-limited to mitigate the blast radius of token theft.
 
 ### Authentication & Authorization Protocols
 | Protocol | Purpose | Key Mechanism |
@@ -268,30 +302,30 @@ What is common between all Microsoft Entra choices is:
 | **SAML** | Enterprise Auth & SSO | XML-based token exchange; standard for legacy/on-premises federation |
 
 ### Single Sign-On (SSO) Benefits
-* **Frictionless Access:** Sign in once, access all relying applications without repeated prompts.
-* **Attack Surface Reduction:** Minimizes credential prompts, combating password fatigue and credential phishing.
-* **Centralized Revocation:** Disabling an account in the IdP immediately revokes access across all integrated enterprise applications.
+- **Frictionless Access:** Sign in once, access all relying applications without repeated prompts.
+- **Attack Surface Reduction:** Minimizes credential prompts, combating password fatigue and credential phishing.
+- **Centralized Revocation:** Disabling an account in the IdP immediately revokes access across all integrated enterprise applications.
 
 ## Directory Services & Active Directory
 
 ### Directory vs. Directory Service
-* **Directory:** A structured hierarchical database storing metadata about network objects (users, devices, groups, resources).
-* **Directory Service:** The software platform that stores directory data and makes it accessible for authentication and authorization.
+- **Directory:** A structured hierarchical database storing metadata about network objects (users, devices, groups, resources).
+- **Directory Service:** The software platform that stores directory data and makes it accessible for authentication and authorization.
 
 ### Active Directory Domain Services (AD DS)
-* **Role:** Centralized on-premises directory service for Windows Server domain environments.
-* **Domain Controller (DC):** The server running the AD DS role that authenticates users and enforces security policies.
-* **Core Mechanisms:**
-  * **Kerberos & NTLM:** Native protocols for user and service authentication.
-  * **LDAP / LDAPS:** Protocol used to query and modify directory objects.
-  * **Group Policy (GPO):** Centralized policy framework to enforce device and user configurations.
-  * **Organizational Units (OUs):** Hierarchical containers used to organize objects and apply GPOs.
+- **Role:** Centralized on-premises directory service for Windows Server domain environments.
+- **Domain Controller (DC):** The server running the AD DS role that authenticates users and enforces security policies.
+- **Core Mechanisms:**
+  - **Kerberos & NTLM:** Native protocols for user and service authentication.
+  - **LDAP / LDAPS:** Protocol used to query and modify directory objects.
+  - **Group Policy (GPO):** Centralized policy framework to enforce device and user configurations.
+  - **Organizational Units (OUs):** Hierarchical containers used to organize objects and apply GPOs.
 
 ### Why AD DS Falls Short for Cloud Environments
-* **Protocol Incompatibility:** Relies on Kerberos/NTLM/LDAP rather than modern web protocols (OAuth 2.0, OIDC, SAML).
-* **Network Boundary:** Requires direct line-of-sight or VPN to a Domain Controller to authenticate.
-* **Device Limitations:** Designed primarily for Windows-joined domain machines, lacking native mobile (iOS/Android) management.
-* **Cloud Workloads:** Cannot natively authenticate SaaS or third-party cloud apps without federation or sync tooling.
+- **Protocol Incompatibility:** Relies on Kerberos/NTLM/LDAP rather than modern web protocols (OAuth 2.0, OIDC, SAML).
+- **Network Boundary:** Requires direct line-of-sight or VPN to a Domain Controller to authenticate.
+- **Device Limitations:** Designed primarily for Windows-joined domain machines, lacking native mobile (iOS/Android) management.
+- **Cloud Workloads:** Cannot natively authenticate SaaS or third-party cloud apps without federation or sync tooling.
 
 ### AD DS vs. Microsoft Entra ID
 | Feature | Active Directory (AD DS) | Microsoft Entra ID |
@@ -306,12 +340,12 @@ What is common between all Microsoft Entra choices is:
 ## Identity Federation
 
 ### Definition & Purpose
-* **Federation:** Establishing a trust relationship between separate Identity Providers (IdPs) to enable cross-domain access without creating separate user accounts.
-* **Core Value:** Users authenticate once at their home IdP; external resource IdPs accept the home IdP's security tokens.
+- **Federation:** Establishing a trust relationship between separate Identity Providers (IdPs) to enable cross-domain access without creating separate user accounts.
+- **Core Value:** Users authenticate once at their home IdP; external resource IdPs accept the home IdP's security tokens.
 
 ### Key Characteristics
-* **One-Way vs. Two-Way:** Trust relationships are **not automatically bidirectional**. If Org A trusts Org B, Org B does not automatically trust Org A unless explicitly configured.
-* **Standardized Protocols:** Built on open standards like SAML, WS-Federation, and OpenID Connect to guarantee cross-vendor interoperability.
+- **One-Way vs. Two-Way:** Trust relationships are **not automatically bidirectional**. If Org A trusts Org B, Org B does not automatically trust Org A unless explicitly configured.
+- **Standardized Protocols:** Built on open standards like SAML, WS-Federation, and OpenID Connect to guarantee cross-vendor interoperability.
 
 ### Primary Federation Scenarios
 | Scenario | Implementation & Benefit |
@@ -319,3 +353,45 @@ What is common between all Microsoft Entra choices is:
 | **B2B Collaboration** | Two organizations establish IdP trust so partners use native corporate credentials to access shared internal resources. |
 | **Consumer / Social Logins** | External apps trust social providers (Google, GitHub, Microsoft) to streamline onboarding without local account creation. |
 | **On-Premises Hybrid (AD FS)** | Active Directory Federation Services projects on-prem AD DS identities to cloud services using secure token exchanges. |
+
+## Azure Infrastructure Security Services
+
+### Azure Firewall
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Azure Firewall?** | A managed, cloud-based network security service that protects Azure cloud workloads and resources with stateful inspection. |
+| **Deployment Architecture** | Typically deployed on a centralized virtual network (Hub VNet) through which all other VNets and local networks route traffic. |
+| **Core Capabilities** | Stateful firewall, built-in High Availability across Availability Zones, Network & Application level filtering (FQDN), Source/Destination NAT (SNAT/DNAT), and Threat Intelligence integration. |
+| **Firewall Tiers** | **Basic** (for SMBs, ~250 Mbps, threat intel alert-only), **Standard** (Layers 3-7 filtering, real-time threat intel, enterprise production standard), **Premium** (adds IDPS with over 67,000 signatures for advanced malware/phishing protection). |
+| **Azure Firewall Manager** | Centralized management tool to define and apply common network/app firewall policies across multiple subscriptions and VNets/Virtual WANs. |
+| **Security Copilot Integration** | Allows security analysts to use natural language prompts to investigate malicious traffic, IDPS logs, and threat intelligence (requires structured logging to a Log Analytics workspace and proper RBAC permissions). |
+
+### Web Application Firewall (WAF)
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is WAF?** | A centralized Web Application Firewall that protects web apps against common web exploits and vulnerabilities (based on OWASP core rule sets), simplifying security management. |
+| **Layer 7 DDoS Protection** | Defends web applications against application-layer DDoS attacks like HTTP Floods, which traditional network/transport layer DDoS protections don't cover. |
+| **Protected Vulnerabilities** | Defends against OWASP top threats including **SQL Injection** (malicious database queries), **Cross-Site Scripting (XSS)** (malicious scripts injected into pages), **HTTP Floods**, and **Remote File Inclusion**. |
+| **Deployment Options** | Can be integrated with **Azure Application Gateway** (regional), **Application Gateway for Containers** (modern container workloads), **Azure Front Door** (global CDN and app delivery), or **Azure CDN** (static/dynamic content). |
+| **Security Copilot Integration** | Integrates with Microsoft Security Copilot to let analysts investigate WAF logs and attack vectors using natural language prompts. |
+
+### Azure Network Segmentation & Virtual Networks
+
+| Concept / Element | Description |
+| :--- | :--- |
+| **Network Segmentation Principles** | Dividing networks into smaller segments to group related assets, isolate resources, and enforce governance. Aligns with Zero Trust (**Assume Breach**) and Defense in Depth to contain attackers and prevent lateral movement. |
+| **Azure Virtual Network (VNet)** | Fundamental building block for private networks in Azure providing scale, availability, and isolation. **No traffic is allowed across VNets or inbound by default** (explicit provisioning required). |
+| **VNet Core Capabilities** | Supports outbound internet communication, secure inter-resource communication, hybrid connectivity (VPN/ExpressRoute), traffic filtering (NSGs/Firewall), and custom routing. |
+| **Subnets** | Smaller network segments created *within* a VNet to isolate workloads by security requirements or function (e.g., placing web servers and database servers on separate subnets). |
+| **VNet Peering** | Connects two VNets together (supports **global peering** across regions) over the private, low-latency Microsoft backbone network rather than the public internet. |
+
+### Azure Bastion
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Azure Bastion?** | A fully managed PaaS service deployed in your VNet that provides secure, seamless RDP and SSH connectivity to VMs directly through the Azure Portal via TLS (port 443). |
+| **Key Benefits** | No public IP required on the target VMs, no need to manage NSGs for Bastion subnet, protects VMs from port scanning, and eliminates the risk of exposing administration ports (RDP/SSH) directly to the internet. |
+| **Bastion Tiers** | **Developer** (free, shared infrastructure, 1 concurrent VM connection, dev/test only), **Basic** (dedicated capacity, moderate production use), **Standard** (adds native client support, shareable links, custom ports, file transfer, and host scaling), **Premium** (adds session recording and private deployment without public IP). |
+| **Connection Methods** | **Browser-based** (HTML5 via Azure Portal, all tiers), **Native client** (local SSH/RDP clients, Standard/Premium), **Shareable links** (access without Azure Portal login, Standard/Premium). |
