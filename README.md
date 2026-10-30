@@ -416,3 +416,40 @@ What is common between all Microsoft Entra choices is:
 | **AI Security & Threat Protection** | Features **AI Security Posture Management (AI SPM)** to maintain an AI Bill of Materials (AI BOM) and **AI Threat Protection** to detect real-time risks like prompt injection, data leakage, and data poisoning using Threat Intelligence and Azure AI Content Safety. |
 | **Security Copilot Integration** | Embeds AI assistance to let security professionals use natural language prompts to analyze recommendations, summarize findings, and receive remediation guidance. |
 | **Portal Integration** | Deeply integrated into the Microsoft Defender portal, unifying posture management and threat protection into a single experience across cloud, hybrid, and code environments. |
+
+### Security Policies, Standards & Recommendations
+
+| Concept / Element | Description |
+| :--- | :--- |
+| **Security Policies & Initiatives** | Backed by Azure Policy. A **policy definition** specifies a security condition, a **security initiative** groups related policies together for a shared goal, and **assignments** apply them to scopes (management groups, subscriptions, resource groups). |
+| **Security Standards & MCSB** | Default built-in standard is the **Microsoft Cloud Security Benchmark (MCSB)**, which provides cloud-centric best practices mapping directly to industry frameworks (CIS, NIST, PCI DSS). |
+| **Security Recommendations** | Generated when resources fail compliance checks against active policies. Categorized by severity (High, Medium, Low) and enriched with risk prioritization (internet exposure, data sensitivity) in Defender CSPM. |
+| **Regulatory Compliance Standards** | Allows organizations to evaluate environments against frameworks like ISO 27001, SOC 2, and NIST SP 800-53 via a compliance dashboard, where fixing a single recommendation can improve compliance across multiple standards simultaneously. |
+
+### Cloud Security Posture Management (CSPM)
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is CSPM?** | A core pillar of Microsoft Defender for Cloud providing hardening guidance, security posture visibility, and misconfiguration tracking across multicloud environments. |
+| **Secure Score** | A central metric aggregating continuous cross-cloud findings into a single percentage; a higher score indicates a lower identified risk level (driven by MCSB built-in recommendations). |
+| **Hardening Recommendations** | Actionable advice grouped into security controls representing vulnerable attack surfaces. Remediation improves the score when all recommendations within a control are resolved. |
+| **Advanced Defender CSPM Features** | **Attack Path Analysis** (AI-powered modeling of vulnerability chains), **Cloud Security Explorer** (graph-based queries to proactively uncover risks), **Governance** (assigning remediation tasks and due dates to owners), **DSPM** (Data Security Posture Management for sensitive datastores), and **AI SPM** (AI Bill of Materials and generative AI posture assessment). |
+| **Plan Options** | **Foundational CSPM** (free, enabled by default with asset discovery, continuous assessment, MCSB compliance, and secure score) vs. **Defender CSPM Plan** (advanced features like attack paths, explorer, governance, DSPM, and AI SPM). |
+
+### Enhanced Security & Workload Protection (CWPP)
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **Cloud Workload Protection Platform (CWPP)** | The pillar of Defender for Cloud dedicated to detecting and resolving threats to resources, workloads, and services through specific **Microsoft Defender Plans**. |
+| **Key Defender Plans** | **Defender for Servers** (adds EDR via Defender for Endpoint), **App Service**, **Storage**, **Databases** (SQL, open-source, Cosmos DB), **Containers** (Kubernetes hardening/runtime threat detection), **Key Vault**, **Resource Manager**, **AI Services** (prompt injection/leakage detection), and **APIs**. |
+| **Enhanced Security Features** | Built-in vulnerability scanning for VMs/registries/SQL, multicloud support (AWS, GCP), hybrid on-premises workload visibility, advanced threat protection alerts, and **Access/Application Controls** (JIT VM access and adaptive app controls). |
+| **AI Workload Protection (Defender for AI)** | Monitors AI workloads in real time, leveraging Microsoft Threat Intelligence and Azure AI Content Safety Prompt Shields to detect prompt injection, data leakage, data poisoning, and credential theft; integrates alerts with Microsoft Defender XDR. |
+
+### DevOps Security Management
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Defender for DevOps?** | A service in Microsoft Defender for Cloud that empowers security teams to manage DevOps security across multi-pipeline and multicloud environments (GitHub, Azure DevOps, GitLab) from code to cloud. |
+| **Core Capabilities** | **Unified Visibility** (inventories and security posture for pre-production code, secrets, and open-source dependencies), **IaC Template Hardening** (minimizing cloud misconfigurations before resources deploy), and **Prioritized Remediation** (pull request annotations and developer ownership workflows). |
+| **Security Overview Metrics** | Surfaces metrics across **Code scanning vulnerabilities**, **Exposed secrets** (API keys/credentials), **Open-source software (OSS) vulnerabilities**, and **Environment recommendations**. |
+| **AI & Code-to-Cloud Integration** | Protects AI development pipelines by detecting exposed AI service API keys and insecure infrastructure templates; integrates code findings into CSPM and attack path analysis to trace production risks back to their source in code. |
