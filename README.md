@@ -453,3 +453,32 @@ What is common between all Microsoft Entra choices is:
 | **Core Capabilities** | **Unified Visibility** (inventories and security posture for pre-production code, secrets, and open-source dependencies), **IaC Template Hardening** (minimizing cloud misconfigurations before resources deploy), and **Prioritized Remediation** (pull request annotations and developer ownership workflows). |
 | **Security Overview Metrics** | Surfaces metrics across **Code scanning vulnerabilities**, **Exposed secrets** (API keys/credentials), **Open-source software (OSS) vulnerabilities**, and **Environment recommendations**. |
 | **AI & Code-to-Cloud Integration** | Protects AI development pipelines by detecting exposed AI service API keys and insecure infrastructure templates; integrates code findings into CSPM and attack path analysis to trace production risks back to their source in code. |
+
+### SIEM & SOAR Concepts
+
+| Concept / Technology | Description |
+| :--- | :--- |
+| **SIEM (Security Information and Event Management)** | Collects log data and security events across the entire digital estate (cloud, on-prem, apps). Aggregates, correlates events to spot anomalies, alerts analysts, groups alerts into incidents, and provides centralized visibility. |
+| **SOAR (Security Orchestration, Automation, and Response)** | Takes alerts from a SIEM and other tools to execute action-driven automated workflows. **Orchestration** connects disparate security tools; **automation** executes repetitive tasks using **playbooks** (automated workflows built on Azure Logic Apps) to speed up threat containment. |
+| **SIEM + SOAR Synergy** | SIEM provides the *visibility* to detect threats, while SOAR provides the *speed* to respond automatically, reducing alert fatigue, human error, and manual swivel-chair investigations. |
+| **AI & Machine Learning in SIEM/SOAR** | Enhances detection via **anomaly detection**, **alert correlation/prioritization**, **false positive reduction**, **multi-stage attack tracking**, and **natural language assistance** (e.g., Security Copilot). |
+
+### Microsoft Sentinel
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Microsoft Sentinel?** | A scalable, cloud-native SIEM and SOAR solution delivering AI-powered security analytics and threat intelligence across multicloud and multiplatform environments. |
+| **Core Capabilities as a SIEM** | **Collects** data at cloud scale (350+ built-in connectors with normalization), **Detects** threats using analytics rules and AI, **Investigates** via AI-assisted tools, and **Responds** rapidly using built-in automation. |
+| **Platform Components** | **Data Lake Tier** (cost-effective, long-term storage for up to 12 years alongside real-time analytics workspace), **Microsoft Sentinel Graph** (models complex asset/identity relationships), and **MCP Server** (natural language interface for AI agents and teams). |
+| **Threat Detection Approaches** | **Rule-based detection** (pattern matching against signatures via Content hub templates), **AI & Machine Learning** (behavioral baselines and **Fusion** correlation engine for multistage attacks), and **Threat Intelligence matching** (indicators mapped to the **MITRE ATT&CK framework**). |
+| **Investigation & Hunting** | Groups related alerts into **incidents** for triage/investigation. Supports proactive **threat hunting** with custom queries that can be promoted into analytics rules. |
+| **Response & Mitigation** | **Automation rules** centrally manage incident handling under specific conditions, triggering **Playbooks** (automated workflows built on Azure Logic Apps) to execute remediation actions like disabling compromised accounts. |
+
+### Microsoft Sentinel & Security Copilot Integration
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **Integration Overview** | Brings AI-assisted capabilities into security operations via two experiences: the **embedded experience in the Microsoft Defender portal** (unified with Defender XDR) and the **standalone Security Copilot experience** (chat-based via plugins). |
+| **Portal Capabilities** | **Incident summarization** (auto-generated narrative of timeline, entities, IoCs), **Guided responses** (triage, containment, investigation, remediation suggestions), **Script & File analysis** (plain-language explanation of obfuscated scripts and file attributes), **Identity & Device summaries** (quick posture and risk checks), and **Incident report generation** (structured export). |
+| **Natural Language to KQL** | Allows analysts to describe what they are looking for in plain language, and Security Copilot automatically generates a ready-to-run KQL query for threat hunting. |
+| **Threat Intelligence & AI Agents** | Consolidates threat intelligence based on organization exposure; includes autonomous agents like the **Security Alert Triage Agent** (verdicts for false positives/real attacks) and the **Dynamic Threat Detection Agent** (identifies gaps in rule-based detection). |
