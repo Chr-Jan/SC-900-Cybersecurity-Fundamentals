@@ -395,3 +395,24 @@ What is common between all Microsoft Entra choices is:
 | **Key Benefits** | No public IP required on the target VMs, no need to manage NSGs for Bastion subnet, protects VMs from port scanning, and eliminates the risk of exposing administration ports (RDP/SSH) directly to the internet. |
 | **Bastion Tiers** | **Developer** (free, shared infrastructure, 1 concurrent VM connection, dev/test only), **Basic** (dedicated capacity, moderate production use), **Standard** (adds native client support, shareable links, custom ports, file transfer, and host scaling), **Premium** (adds session recording and private deployment without public IP). |
 | **Connection Methods** | **Browser-based** (HTML5 via Azure Portal, all tiers), **Native client** (local SSH/RDP clients, Standard/Premium), **Shareable links** (access without Azure Portal login, Standard/Premium). |
+
+### Azure Key Vault
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Azure Key Vault?** | A cloud service for securely storing and tightly controlling access to application secrets (API keys, passwords, certificates, and cryptographic keys). |
+| **Core Functions** | **Secrets Management** (passwords, connection strings), **Key Management** (encryption keys), and **Certificate Management** (provisioning, deployment, and auto-renewal of TLS/SSL certs). |
+| **Why Use Key Vault?** | Centralizes secrets so developers don't hardcode them in application code; prevents accidental leaks; backed by robust authentication (Entra ID) and authorization (Azure RBAC or Access Policies); isolates applications into separate vaults. |
+| **Zero Trust Alignment** | Supports the **least privilege** principle by granting apps/users access *only* to the specific secrets they need, limiting the blast radius if compromised. Microsoft cannot see or extract your data. |
+| **Azure Service Integration** | Integrates natively with **Azure Disk Encryption** (disk keys), **Azure SQL Database** (data protection keys), and **App Service** (runtime configuration retrieval without code exposure). |
+| **Service Tiers** | **Standard** (software-based key protection for typical business scenarios) and **Premium** (Hardware Security Module [HSM]-protected keys where keys never leave the tamper-resistant hardware boundary, designed for strict regulatory/compliance requirements). |
+
+### Microsoft Defender for Cloud
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Defender for Cloud?** | A cloud-native application protection platform (CNAPP) that protects workloads across Azure, AWS, GCP, and on-premises by combining posture management, workload protection, and DevSecOps. |
+| **Three Core Pillars** | **DevSecOps** (shift-left security, unifying vulnerability management across code and pipelines like GitHub/Azure DevOps), **CSPM** (Cloud Security Posture Management, tracking misconfigurations and generating a secure score), and **CWPP** (Cloud Workload Protection Platform, providing resource-specific protection plans like Defender for Servers/Storage/Databases). |
+| **AI Security & Threat Protection** | Features **AI Security Posture Management (AI SPM)** to maintain an AI Bill of Materials (AI BOM) and **AI Threat Protection** to detect real-time risks like prompt injection, data leakage, and data poisoning using Threat Intelligence and Azure AI Content Safety. |
+| **Security Copilot Integration** | Embeds AI assistance to let security professionals use natural language prompts to analyze recommendations, summarize findings, and receive remediation guidance. |
+| **Portal Integration** | Deeply integrated into the Microsoft Defender portal, unifying posture management and threat protection into a single experience across cloud, hybrid, and code environments. |
