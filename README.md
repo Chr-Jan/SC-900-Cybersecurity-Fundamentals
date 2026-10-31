@@ -547,8 +547,18 @@ What is common between all Microsoft Entra choices is:
 
 | Feature / Aspect | Description |
 | :--- | :--- |
-| **What is Entitlement Management?** | An identity governance feature that automates access request workflows, assignments, reviews, and expiration to manage identity and access lifecycle at scale[cite: 1]. |
-| **Core Capabilities & Challenges Addressed** | Helps solve issues where users don't know who to ask for access, retain access too long, or struggle to manage complex external user access[cite: 1]. Allows delegation of access package creation to non-administrators[cite: 1]. |
-| **External Users & AI Governance** | Automatically invites external users into the directory upon approval and removes their B2B account when access expires without other assignments[cite: 1]. Also governs access for both **human and AI agent identities** via human sponsors[cite: 1]. |
-| **Access Packages** | Bundles of resources (security groups, M365 groups, enterprise apps, SharePoint sites) that users need for a project, managed through policies defining who can request them, who approves them, and expiration rules[cite: 1]. |
-| **Microsoft Entra Terms of Use** | Presents legal/compliance disclaimers (in PDF format) to users before they access sensitive data or apps[cite: 1]. Enforced using **Conditional Access policies** to ensure users agree before entry, allowing admins to track acceptances and declines[cite: 1]. |
+| **What is Entitlement Management?** | An identity governance feature that automates access request workflows, assignments, reviews, and expiration to manage identity and access lifecycle at scale. |
+| **Core Capabilities & Challenges Addressed** | Helps solve issues where users don't know who to ask for access, retain access too long, or struggle to manage complex external user access. Allows delegation of access package creation to non-administrators. |
+| **External Users & AI Governance** | Automatically invites external users into the directory upon approval and removes their B2B account when access expires without other assignments. Also governs access for both **human and AI agent identities** via human sponsors. |
+| **Access Packages** | Bundles of resources (security groups, M365 groups, enterprise apps, SharePoint sites) that users need for a project, managed through policies defining who can request them, who approves them, and expiration rules. |
+| **Microsoft Entra Terms of Use** | Presents legal/compliance disclaimers (in PDF format) to users before they access sensitive data or apps. Enforced using **Conditional Access policies** to ensure users agree before entry, allowing admins to track acceptances and declines. |
+
+### Microsoft Entra Privileged Identity Management (PIM)
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is PIM?** | A service in Microsoft Entra ID used to manage, control, and monitor access to critical resources across Entra ID, Azure, and M365 services, mitigating risks of excessive or misused permissions. |
+| **Core Principles** | **Just-in-time** (access only when needed), **Time-bound** (start/end dates), **Approval-based** (requires specific approvals), **Visible** (notifications on activation), and **Auditable** (full access history download). |
+| **Supported Scope / Targets** | **Microsoft Entra roles** (directory/M365 roles), **Azure roles** (management groups, subscriptions, resource groups), and **PIM for Groups** (just-in-time membership/ownership for groups controlling app, SQL, or Key Vault access). |
+| **Basic Workflow** | **Assign** (eligible vs. active assignments, scope, duration), **Activate** (users request activation with a duration and reason), **Approve/Deny** (delegated approvers review requests), and **Extend/Renew** (request extensions or renewals for expiring/expired assignments). |
+| **Audit Capabilities** | Allows administrators to view all role assignments and activations from the past 30 days for all privileged roles. |
