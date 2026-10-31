@@ -482,3 +482,43 @@ What is common between all Microsoft Entra choices is:
 | **Portal Capabilities** | **Incident summarization** (auto-generated narrative of timeline, entities, IoCs), **Guided responses** (triage, containment, investigation, remediation suggestions), **Script & File analysis** (plain-language explanation of obfuscated scripts and file attributes), **Identity & Device summaries** (quick posture and risk checks), and **Incident report generation** (structured export). |
 | **Natural Language to KQL** | Allows analysts to describe what they are looking for in plain language, and Security Copilot automatically generates a ready-to-run KQL query for threat hunting. |
 | **Threat Intelligence & AI Agents** | Consolidates threat intelligence based on organization exposure; includes autonomous agents like the **Security Alert Triage Agent** (verdicts for false positives/real attacks) and the **Dynamic Threat Detection Agent** (identifies gaps in rule-based detection). |
+
+### Conditional Access
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Conditional Access?** | Microsoft's Zero Trust policy engine built into Microsoft Entra ID. Evaluates conditions (**if-then statements**) *after* first-factor authentication to grant, block, or limit access. |
+| **Assignments (The "Who, What, Where, When")** | **Users** (all, specific, roles, guests, workload/agent identities), **Target resources** (cloud apps, user actions, Global Secure Access), **Network** (trusted locations, IP ranges, compliant networks), and **Conditions** (sign-in/user/insider risk, device platforms, client apps, device filters). |
+| **Access Controls (The "Then")** | **Block access** or **Grant access** (require MFA, authentication strength, compliant device, hybrid join, approved client app, password change, terms of use) alongside **Session controls** (sign-in frequency, Defender for Cloud Apps integration). |
+| **Authentication Strengths** | Specifies allowed method combinations: **Multifactor authentication strength** (all MFA methods), **Passwordless MFA strength** (authenticator, FIDO2, Windows Hello), and **Phishing-resistant MFA strength** (FIDO2, CBA, Windows Hello). |
+| **Licensing** | Requires **Microsoft Entra ID P1 or P2** licenses (free tenants must use Security Defaults instead). |
+
+### Global Secure Access (Security Service Edge - SSE)
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Global Secure Access?** | Microsoft's Cloud-native Security Service Edge (SSE) solution combining network, identity, and endpoint access controls to secure access to any app or resource, replacing legacy VPNs with Zero Trust principles. |
+| **Core Components** | **Microsoft Entra Internet Access** (Secure Web Gateway for SaaS/web traffic), **Internet Access for Microsoft Services** (optimized connectivity and source IP restoration for M365), and **Microsoft Entra Private Access** (ZTNA providing per-app access to private corporate resources). |
+| **Internet Access Features** | Web content filtering, Universal Conditional Access, TLS inspection, threat intelligence, prompt injection protection, and Universal Continuous Access Evaluation (CAE). |
+| **Private Access Features** | Replaces legacy VPNs with granular access via **Quick Access** (FQDN/IP groups) or **Per-app Access** (individual enterprise apps), supported by **App Discovery** to find unmanaged private resources. |
+| **AI Workload Security** | Extends network controls to AI services via prompt injection protection, shadow AI discovery, and traffic policies applied to AI agent workloads. |
+
+### Microsoft Entra Roles & Role-Based Access Control (RBAC)
+
+| Concept / Role Type | Description |
+| :--- | :--- |
+| **Microsoft Entra RBAC** | Controls permissions to manage Microsoft Entra resources (users, groups, applications) as opposed to *Azure RBAC*, which controls Azure resources (VMs, storage). |
+| **Built-in Roles** | Preconfigured, fixed sets of permissions that cannot be modified. Examples include **Global Administrator** (full access), **User Administrator** (manage users/groups/tickets), and **Billing Administrator** (purchases and subscriptions). |
+| **Custom Roles** | User-defined collections of permissions created from a preset list and assigned at organization-wide or object scope (**requires Entra ID P1 or P2 licenses**). |
+| **Principle of Least Privilege** | Best practice of granting users only the minimum permissions necessary to do their work, limiting the blast radius of compromised human or AI accounts. |
+| **Categories of Roles** | **Entra-specific** (manage Entra resources only), **Service-specific** (manage M365 services like Exchange, Intune, SharePoint, Teams), and **Cross-service** (span multiple services, like Security Administrator or Compliance Administrator). |
+
+### Microsoft Entra ID Governance
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is ID Governance?** | An identity governance solution that improves productivity, strengthens security, and meets compliance by ensuring the right people have the right access through automation, delegation, and visibility. |
+| **Identity Lifecycle Management** | Governs the "join, move, and leave" process. Automates identity creation and maintenance via **inbound provisioning from HR sources**, **lifecycle workflows**, **automatic assignment policies**, and **user provisioning** to cloud/on-prem apps. |
+| **Access Lifecycle Management** | Manages ongoing access needs using **dynamic groups** (attribute-based rules) and **entitlement management** (access packages, request workflows, and recurring **access reviews** with AI-powered suggestions). |
+| **Privileged Access Lifecycle** | Uses **Microsoft Entra Privileged Identity Management (PIM)** to minimize and control administrative rights, providing time-bound, approval-based Just-In-Time access. |
+| **Identity Governance for AI Agents** | Extends governance controls to AI agent identities (**Microsoft Entra Agent ID**), requiring a accountable **human sponsor** whose oversight automatically transfers to their manager if they leave. |
