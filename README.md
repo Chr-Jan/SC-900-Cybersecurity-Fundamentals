@@ -522,3 +522,13 @@ What is common between all Microsoft Entra choices is:
 | **Access Lifecycle Management** | Manages ongoing access needs using **dynamic groups** (attribute-based rules) and **entitlement management** (access packages, request workflows, and recurring **access reviews** with AI-powered suggestions). |
 | **Privileged Access Lifecycle** | Uses **Microsoft Entra Privileged Identity Management (PIM)** to minimize and control administrative rights, providing time-bound, approval-based Just-In-Time access. |
 | **Identity Governance for AI Agents** | Extends governance controls to AI agent identities (**Microsoft Entra Agent ID**), requiring a accountable **human sponsor** whose oversight automatically transfers to their manager if they leave. |
+
+### Microsoft Entra Access Reviews
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What are Access Reviews?** | Tools to efficiently manage group memberships, enterprise app access, and role assignments[cite: 1], ensuring that only the right people maintain access[cite: 1] and mitigating excessive privilege risks[cite: 1]. |
+| **Key Use Cases** | Auditing privileged roles (recertifying admin users/guests), securing business-critical data access, maintaining policy exception lists, having group owners recertify guest access, and setting up **recurring reviews** (weekly, monthly, quarterly, annually)[cite: 1]. |
+| **Workflow & Application** | Reviewers (users or decision-makers) approve or deny access based on Microsoft Entra ID suggestions[cite: 1]. Changes can be **manually or auto-applied** when the review finishes (except for dynamic or on-premises groups)[cite: 1]. |
+| **Multi-stage Access Reviews** | Supports up to three review stages to handle complex workflows requiring multiple reviewers to attest to access in a specific sequence[cite: 1]. |
+| **AI-Powered Recommendations** | Uses contextual data, sign-in activity, and peer affiliation to suggest approvals or denials, while flagging **peer outliers** whose access patterns differ from others[cite: 1]. |
