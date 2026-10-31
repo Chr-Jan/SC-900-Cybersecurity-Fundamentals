@@ -527,8 +527,18 @@ What is common between all Microsoft Entra choices is:
 
 | Feature / Aspect | Description |
 | :--- | :--- |
-| **What are Access Reviews?** | Tools to efficiently manage group memberships, enterprise app access, and role assignments[cite: 1], ensuring that only the right people maintain access[cite: 1] and mitigating excessive privilege risks[cite: 1]. |
-| **Key Use Cases** | Auditing privileged roles (recertifying admin users/guests), securing business-critical data access, maintaining policy exception lists, having group owners recertify guest access, and setting up **recurring reviews** (weekly, monthly, quarterly, annually)[cite: 1]. |
-| **Workflow & Application** | Reviewers (users or decision-makers) approve or deny access based on Microsoft Entra ID suggestions[cite: 1]. Changes can be **manually or auto-applied** when the review finishes (except for dynamic or on-premises groups)[cite: 1]. |
-| **Multi-stage Access Reviews** | Supports up to three review stages to handle complex workflows requiring multiple reviewers to attest to access in a specific sequence[cite: 1]. |
-| **AI-Powered Recommendations** | Uses contextual data, sign-in activity, and peer affiliation to suggest approvals or denials, while flagging **peer outliers** whose access patterns differ from others[cite: 1]. |
+| **What are Access Reviews?** | Tools to efficiently manage group memberships, enterprise app access, and role assignments, ensuring that only the right people maintain access and mitigating excessive privilege risks. |
+| **Key Use Cases** | Auditing privileged roles (recertifying admin users/guests), securing business-critical data access, maintaining policy exception lists, having group owners recertify guest access, and setting up **recurring reviews** (weekly, monthly, quarterly, annually). |
+| **Workflow & Application** | Reviewers (users or decision-makers) approve or deny access based on Microsoft Entra ID suggestions. Changes can be **manually or auto-applied** when the review finishes (except for dynamic or on-premises groups). |
+| **Multi-stage Access Reviews** | Supports up to three review stages to handle complex workflows requiring multiple reviewers to attest to access in a specific sequence. |
+| **AI-Powered Recommendations** | Uses contextual data, sign-in activity, and peer affiliation to suggest approvals or denials, while flagging **peer outliers** whose access patterns differ from others. |
+
+### Microsoft Entra Access Reviews
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What are Access Reviews?** | Tools to efficiently manage group memberships, enterprise app access, and role assignments, ensuring that only the right people maintain access and mitigating excessive privilege risks. |
+| **Key Use Cases** | Auditing privileged roles (recertifying admin users/guests), securing business-critical data access, maintaining policy exception lists, having group owners recertify guest access, and setting up **recurring reviews** (weekly, monthly, quarterly, annually). |
+| **Workflow & Application** | Reviewers (users or decision-makers) approve or deny access based on Microsoft Entra ID suggestions. Changes can be **manually or auto-applied** when the review finishes (except for dynamic or on-premises groups). |
+| **Multi-stage Access Reviews** | Supports up to three review stages to handle complex workflows requiring multiple reviewers to attest to access in a specific sequence. |
+| **AI-Powered Recommendations** | Uses contextual data, sign-in activity, and peer affiliation to suggest approvals or denials, while flagging **peer outliers** whose access patterns differ from others. |
