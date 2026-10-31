@@ -562,3 +562,13 @@ What is common between all Microsoft Entra choices is:
 | **Supported Scope / Targets** | **Microsoft Entra roles** (directory/M365 roles), **Azure roles** (management groups, subscriptions, resource groups), and **PIM for Groups** (just-in-time membership/ownership for groups controlling app, SQL, or Key Vault access). |
 | **Basic Workflow** | **Assign** (eligible vs. active assignments, scope, duration), **Activate** (users request activation with a duration and reason), **Approve/Deny** (delegated approvers review requests), and **Extend/Renew** (request extensions or renewals for expiring/expired assignments). |
 | **Audit Capabilities** | Allows administrators to view all role assignments and activations from the past 30 days for all privileged roles. |
+
+### Microsoft Entra ID Protection
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is ID Protection?** | A tool that helps organizations detect, investigate, and remediate identity-based risks for both user identities and workload identities using trillions of daily signals. |
+| **Risk Types & Detections** | Evaluates **sign-in risk** (probability that an auth request isn't authorized, e.g., anonymous IPs or atypical travel) and **user risk** (probability that an account is compromised, e.g., leaked credentials). Detections only trigger when *correct* credentials are used. |
+| **Investigation Reports** | Provides three key reports for admins: **Risk detections** (individual detected risks), **Risky sign-ins** (sign-ins tied to risk detections), and **Risky users** (users flagged by risky sign-ins or risk detections). |
+| **Remediation** | Can be automated via **risk-based Conditional Access policies** (requiring MFA or secure password resets, which auto-remediate the risk upon success) or handled manually by admins (dismissing, confirming safe, or confirming compromise). |
+| **Export Capabilities** | Data can be exported via Microsoft Graph APIs to SIEM tools, sent to Log Analytics workspaces, archived to storage accounts, or streamed to Event Hubs. |
