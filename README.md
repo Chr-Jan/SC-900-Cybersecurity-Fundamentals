@@ -542,3 +542,13 @@ What is common between all Microsoft Entra choices is:
 | **Workflow & Application** | Reviewers (users or decision-makers) approve or deny access based on Microsoft Entra ID suggestions. Changes can be **manually or auto-applied** when the review finishes (except for dynamic or on-premises groups). |
 | **Multi-stage Access Reviews** | Supports up to three review stages to handle complex workflows requiring multiple reviewers to attest to access in a specific sequence. |
 | **AI-Powered Recommendations** | Uses contextual data, sign-in activity, and peer affiliation to suggest approvals or denials, while flagging **peer outliers** whose access patterns differ from others. |
+
+### Microsoft Entra Entitlement Management & Terms of Use
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Entitlement Management?** | An identity governance feature that automates access request workflows, assignments, reviews, and expiration to manage identity and access lifecycle at scale[cite: 1]. |
+| **Core Capabilities & Challenges Addressed** | Helps solve issues where users don't know who to ask for access, retain access too long, or struggle to manage complex external user access[cite: 1]. Allows delegation of access package creation to non-administrators[cite: 1]. |
+| **External Users & AI Governance** | Automatically invites external users into the directory upon approval and removes their B2B account when access expires without other assignments[cite: 1]. Also governs access for both **human and AI agent identities** via human sponsors[cite: 1]. |
+| **Access Packages** | Bundles of resources (security groups, M365 groups, enterprise apps, SharePoint sites) that users need for a project, managed through policies defining who can request them, who approves them, and expiration rules[cite: 1]. |
+| **Microsoft Entra Terms of Use** | Presents legal/compliance disclaimers (in PDF format) to users before they access sensitive data or apps[cite: 1]. Enforced using **Conditional Access policies** to ensure users agree before entry, allowing admins to track acceptances and declines[cite: 1]. |
