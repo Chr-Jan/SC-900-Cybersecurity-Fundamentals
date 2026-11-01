@@ -653,3 +653,14 @@ What is common between all Microsoft Entra choices is:
 | **Core Threat Intelligence Capabilities** | Includes **Threat analytics** (reports categorized by latest threats, high-impact threats, and highest exposure), **Intel profiles** (Microsoft's curated repository on threat actors, tools, and vulnerabilities), **Intel explorer** (allows searching articles, keywords, and CVE IDs with priority scores), and **Projects** (organizes indicators of interest and IOCs from investigations). |
 | **Portal Integration** | Accessed through the *Threat intelligence* node on the navigation panel of the **Microsoft Defender portal**. |
 | **Security Copilot Integration** | Integrates via the Defender TI plugin to deliver info on threat activity groups, IOCs, and tools using prompts and built-in promptbooks (*Vulnerability impact assessment* and *Threat actor profile*). Also features the autonomous **Threat Intelligence Briefing Agent** to deliver regular, customized threat briefings. |
+
+### Microsoft Security Exposure Management
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Security Exposure Management?** | A security solution in the Microsoft Defender portal providing a unified view of security posture across organization assets and workloads by aggregating signals from Microsoft Defender tools, Entra ID, and non-Microsoft solutions. |
+| **Attack Surface Management** | Built around the **enterprise exposure graph** (mapping assets, users, and workloads across on-prem, hybrid, and multicloud environments) and the **attack surface map** (visualizing risks and cross-environment connections). |
+| **Attack Paths & Choke Points** | Automatically generates multi-step **attack paths** showing how attackers can chain vulnerabilities from an entry point to a critical asset. Highlights **choke points** (nodes where multiple attack paths converge) to disrupt multiple routes at once. |
+| **Critical Asset Management** | Identifies, classifies, and prioritizes high-value targets (such as domain controllers, sensitive databases, or power user roles) using predefined or custom classifications based on criteria like resource tags or naming conventions. |
+| **Exposure Insights & Initiatives** | Groups related metrics and recommendations into **security initiatives** (workload initiatives, horizontal threat initiatives, threat analytics initiatives, and Zero Trust initiatives) to track security posture and score changes over time. |
+| **Integration with Secure Score & Data Connectors** | Consolidates Microsoft Secure Score and Cloud Secure Score data side by side. Integrates external data sources via **data connectors** (such as ServiceNow CMDB, Tenable, Qualys, and Rapid7). |
