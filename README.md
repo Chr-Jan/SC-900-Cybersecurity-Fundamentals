@@ -572,3 +572,13 @@ What is common between all Microsoft Entra choices is:
 | **Investigation Reports** | Provides three key reports for admins: **Risk detections** (individual detected risks), **Risky sign-ins** (sign-ins tied to risk detections), and **Risky users** (users flagged by risky sign-ins or risk detections). |
 | **Remediation** | Can be automated via **risk-based Conditional Access policies** (requiring MFA or secure password resets, which auto-remediate the risk upon success) or handled manually by admins (dismissing, confirming safe, or confirming compromise). |
 | **Export Capabilities** | Data can be exported via Microsoft Graph APIs to SIEM tools, sent to Log Analytics workspaces, archived to storage accounts, or streamed to Event Hubs. |
+
+### Microsoft Defender XDR Services
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Microsoft Defender XDR?** | A unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications. |
+| **Included Solutions** | **Defender for Endpoint** (device protection/EDR), **Defender Vulnerability Management** (continuous asset visibility/risk assessment), **Defender for Office 365** (email/collaboration threat protection), **Defender for Identity** (hybrid identity monitoring), **Entra ID Protection** (cloud identity risk protection), **Defender for Cloud Apps** (CASB / shadow IT control), **Defender Threat Intelligence (Defender TI)**, and **Security Exposure Management** (unified posture/attack surface view). |
+| **Cross-Product Capabilities** | **Combined incidents queue** (automatically groups related alerts into a single incident), **Automatic response** (shares threat info across products instantly), **Self-healing** (AI-powered remediation for compromised assets), **Automatic attack disruption** (contains active attacks in real time), and **Cross-product threat hunting** (30 days of raw historical data across products). |
+| **Microsoft Defender Portal** | Centralized platform combining data from the XDR suite, Microsoft Sentinel, and Defender for Cloud into a single operations experience. |
+| **Security Copilot Integration** | Provides natural language incident summaries, AI-guided responses, script/file analysis, and automated threat-hunting queries, available both standalone and embedded. |
