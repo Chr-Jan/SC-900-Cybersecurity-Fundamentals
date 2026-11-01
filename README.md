@@ -582,3 +582,47 @@ What is common between all Microsoft Entra choices is:
 | **Cross-Product Capabilities** | **Combined incidents queue** (automatically groups related alerts into a single incident), **Automatic response** (shares threat info across products instantly), **Self-healing** (AI-powered remediation for compromised assets), **Automatic attack disruption** (contains active attacks in real time), and **Cross-product threat hunting** (30 days of raw historical data across products). |
 | **Microsoft Defender Portal** | Centralized platform combining data from the XDR suite, Microsoft Sentinel, and Defender for Cloud into a single operations experience. |
 | **Security Copilot Integration** | Provides natural language incident summaries, AI-guided responses, script/file analysis, and automated threat-hunting queries, available both standalone and embedded. |
+
+### Microsoft Defender XDR Services
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Microsoft Defender XDR?** | A unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications. |
+| **Included Solutions** | **Defender for Endpoint** (device protection/EDR), **Defender Vulnerability Management** (continuous asset visibility/risk assessment), **Defender for Office 365** (email/collaboration threat protection), **Defender for Identity** (hybrid identity monitoring), **Entra ID Protection** (cloud identity risk protection), **Defender for Cloud Apps** (CASB / shadow IT control), **Defender Threat Intelligence (Defender TI)**, and **Security Exposure Management** (unified posture/attack surface view). |
+| **Cross-Product Capabilities** | **Combined incidents queue** (automatically groups related alerts into a single incident), **Automatic response** (shares threat info across products instantly), **Self-healing** (AI-powered remediation for compromised assets), **Automatic attack disruption** (contains active attacks in real time), and **Cross-product threat hunting** (30 days of raw historical data across products). |
+| **Microsoft Defender Portal** | Centralized platform combining data from the XDR suite, Microsoft Sentinel, and Defender for Cloud into a single operations experience. |
+| **Security Copilot Integration** | Provides natural language incident summaries, AI-guided responses, script/file analysis, and automated threat-hunting queries, available both standalone and embedded. |
+
+### Microsoft Defender for Office 365
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Defender for Office 365?** | A cloud-based email and collaboration security service providing protection against phishing, malware, and threats arriving via email links, attachments, or collaboration tools (SharePoint, Teams, Outlook). Available in **Plan 1 and Plan 2**. |
+| **Prevent and Detect** | Features include anti-malware, anti-spam, anti-phishing (spoofing), connection filtering, quarantine policies, **Safe Attachments** (detonation in a virtual environment), **Safe Links** (blocking malicious URLs), and **Attack simulation training** for user resilience. |
+| **Investigate** | Includes **Message trace** (tracking message flow), **Explorer / Real-time detections** (near real-time SecOps investigation), **URL trace**, **Threat trackers**, and the **Campaigns** feature to identify coordinated email attacks. |
+| **Respond** | Includes **Zero-hour auto purge (ZAP)** to retroactively neutralize delivered malicious mail, and **Automated investigation and response (AIR)** capabilities. |
+| **Microsoft Defender Portal Integration** | Managed via the Microsoft Defender portal under the *Email & collaboration* node (covering investigations, review/quarantine, campaigns, trace, and policies). |
+| **Security Copilot Integration** | Integrates with Microsoft Security Copilot for incident summarization, guided responses, and features the autonomous **Phishing Triage Agent** (requires Plan 2 and Security Copilot) to automatically classify user-reported phishing submissions. |
+
+### Microsoft Defender for Endpoint
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Defender for Endpoint?** | A platform designed to help enterprise networks protect endpoints (laptops, phones, tablets, PCs, access points, routers, and firewalls) by preventing, detecting, investigating, and responding to advanced threats. |
+| **Core Technologies** | Uses **endpoint behavioral sensors** embedded in the OS, **cloud security analytics** to translate signals into insights, and **threat intelligence** to identify attacker tools and techniques. |
+| **Key Capabilities** | Includes **Core Vulnerability Management**, **Attack surface reduction** (network and web protection), **Next generation protection** (behavior-based antivirus, cloud-delivered protection), **Endpoint detection and response (EDR)**, **Automated investigation and remediation (AIR)**, **Microsoft Secure Score for Devices**, and **Microsoft Defender Experts for Hunting**. |
+| **Management & Portal Integration** | Available in **Plan 1 and Plan 2**. Managed through the **Microsoft Defender portal** under the *Endpoints* node, covering vulnerability management, partners/APIs (Connected apps and API Explorer), and configuration management. |
+| **Security Copilot Integration** | Integrates with Microsoft Security Copilot to summarize device security posture, investigate alerts faster, and generate threat-hunting queries using natural language. |
+
+### Microsoft Defender for Cloud Apps
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Defender for Cloud Apps?** | A comprehensive cross-SaaS solution and Cloud Access Security Broker (CASB) that delivers full protection for SaaS applications, monitoring and protecting cloud app data across discovery, SSPM, advanced threat protection, and app-to-app protection. |
+| **Discover SaaS Applications** | Identifies SaaS apps used across the organization using network traffic assessment and an app catalog. Evaluates apps against 90+ risk indicators (Assess) and monitors usage with automated alert policies (Manage). |
+| **Information Protection** | Connects to SaaS apps to scan files containing sensitive data. Integrates with Microsoft Purview for data classification and data loss prevention (DLP) features, allowing actions like applying sensitivity labels, blocking downloads to unmanaged devices, or removing external collaborators. |
+| **SaaS Security Posture Management (SSPM)** | Surfaces misconfigurations and recommends specific actions to strengthen security posture based on industry standards (like CIS) and provider best practices, automatically feeding data into Microsoft Secure Score. |
+| **Advanced Threat Protection** | Offers adaptive access control (AAC), user and entity behavior analysis (UEBA), and integrates directly into Microsoft Defender XDR to provide full kill chain visibility and response capabilities. |
+| **App-to-App Protection (App Governance)** | Protects inter-app data exchange for OAuth-enabled apps. Closes security gaps by monitoring unused apps, credentials, and permissions, preventing misuse of third-party service access. |
+| **AI Agent Protection** | Monitors custom AI agents built with Microsoft Copilot Studio for risks like prompt injection or unauthorized tool execution, collecting audit logs, providing real-time protection, and integrating alerts into Microsoft Defender XDR. |
+| **Portal Integration** | Managed via the **Microsoft Defender portal** under the *Cloud apps* node, featuring tools like Cloud discovery, Cloud app catalog, App governance, Activity logs, Governance logs, and Policies. |
