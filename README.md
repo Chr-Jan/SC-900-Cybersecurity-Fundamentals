@@ -626,3 +626,21 @@ What is common between all Microsoft Entra choices is:
 | **App-to-App Protection (App Governance)** | Protects inter-app data exchange for OAuth-enabled apps. Closes security gaps by monitoring unused apps, credentials, and permissions, preventing misuse of third-party service access. |
 | **AI Agent Protection** | Monitors custom AI agents built with Microsoft Copilot Studio for risks like prompt injection or unauthorized tool execution, collecting audit logs, providing real-time protection, and integrating alerts into Microsoft Defender XDR. |
 | **Portal Integration** | Managed via the **Microsoft Defender portal** under the *Cloud apps* node, featuring tools like Cloud discovery, Cloud app catalog, App governance, Activity logs, Governance logs, and Policies. |
+
+### Microsoft Defender for Identity
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Defender for Identity?** | A cloud-based security solution that uses signals from identity infrastructure to detect threats (like privilege escalation or lateral movement) and report on easily exploited identity issues in hybrid environments. |
+| **How it Works** | Uses software-based sensors installed on on-premises identity infrastructure servers (domain controllers, AD FS, AD CS). Sensors parse event logs and network traffic and send them to the Defender for Identity cloud service to deliver an ITDR solution. |
+| **Core Capabilities** | **Prevent breaches** (proactively assessing posture via Secure Score), **Detect threats** (real-time analytics across the kill-chain: reconnaissance, compromised credentials, lateral movements, domain dominance), **Investigate** (attack timeline view reducing noise), and **Respond** (remediation actions like disabling users or resetting passwords on-prem). |
+| **Portal Integration** | Managed via the **Microsoft Defender portal** under the *Identities* node, providing a Dashboard with critical insights, a Health issues page for sensors/deployment monitoring, and a Tools page with deployment scripts and PowerShell modules. |
+
+### Microsoft Defender Vulnerability Management
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Defender Vulnerability Management?** | A comprehensive, risk-based solution that provides continuous asset visibility, intelligent assessments, and built-in remediation tools to identify, assess, remediate, and track vulnerabilities across critical assets (Windows, macOS, Linux, Android, iOS, and network devices). |
+| **Core Capabilities** | **Continuous asset discovery and monitoring** (agentless scanners, inventories for software, certificates, hardware/firmware, and browser extensions; baseline assessments against CIS/STIG benchmarks), **Risk-based intelligent prioritization** (focuses on emerging threats, active breaches via EDR correlation, and high-value assets), and **Remediation and tracking** (Intune task creation, blocking vulnerable applications, alternate mitigations, and real-time tracking). |
+| **Portal Integration** | Accessed through the **Microsoft Defender portal** under *Exposure management > Vulnerability management*. Features include **Overview** (exposure score and Secure Score for Devices), **Vulnerabilities** (CVE lists and CVSS ratings), **Inventories**, **Remediation**, and **Baseline assessments**. |
+| **Security Copilot Integration** | Provides AI-powered assistance for vulnerability management workflows, including AI-generated summaries of recommendations, risk context explanations, step-by-step remediation guidance, and task delegation. |
