@@ -692,7 +692,7 @@ What is common between all Microsoft Entra choices is:
 | **Embedded Experience Capabilities** | Built directly into the Defender XDR portal to support **Summarize incidents** (auto-generating attack overviews up to 100 alerts), **Guided responses** (AI-driven triage, containment, investigation, and remediation recommendations), **Script analysis** (inspecting code/PowerShell scripts safely), **Natural language to KQL**, **Create incident reports**, **Analyze files**, and **Summarize devices and identities**. Allows seamless pivoting to the standalone portal. |
 | **Autonomous AI Agents** | Includes specialized agents that operate within the portal: <br>• **Phishing Triage Agent:** Automatically reviews and classifies user-submitted phishing emails (requires Office 365 Plan 2).<br>• **Threat Intelligence Briefing Agent:** Gathers and delivers customized, actionable threat briefings.<br>• **Threat Hunting Assistant:** Guides analysts through end-to-end hunting sessions using natural language to build KQL queries and interpret results.<br>• **Dynamic Threat Detection Agent:** Always-on backend service using AI to uncover hidden threats and reduce false negatives without requiring setup. |
 
-### Microsoft Defender for Cloud & Sikkerhedsstyring
+### Microsoft Defender for Cloud
 
 | Feature / Aspect | Description |
 | :--- | :--- |
@@ -711,3 +711,35 @@ What is common between all Microsoft Entra choices is:
 | **Security Standards & MCSB** | The built-in default standard is the **Microsoft Cloud Security Benchmark (MCSB)**, which provides cloud-centric best practices built on CIS and NIST frameworks for Azure, AWS, and GCP. It directly maps recommendations to industry frameworks (ISO, NIST, PCI DSS). |
 | **Security Recommendations** | Actionable guidance generated when resources fail compliance checks against active policies. Prioritized by severity (High, Medium, Low) and—in Defender CSPM—enriched with risk factors such as internet exposure and data sensitivity. |
 | **Regulatory Compliance Standards** | Allows organizations to add external standards (e.g., ISO 27001, SOC 2, PCI DSS) to the compliance dashboard. **Key benefit:** Addressing a single security recommendation can automatically improve compliance status across multiple standards simultaneously. |
+
+### Cloud Security Posture Management (CSPM)
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is CSPM?** | A core pillar of Microsoft Defender for Cloud providing hardening guidance, security posture visibility, and misconfiguration tracking across multicloud environments (Azure, AWS, GCP). |
+| **Secure Score** | The central metric aggregating continuous cross-cloud findings into a single percentage based on the **Microsoft Cloud Security Benchmark (MCSB)**. A higher score indicates a lower identified risk level. |
+| **Hardening Recommendations** | Actionable advice grouped into security controls. Remediation improves the score only when all recommendations for a single resource within a control are resolved. |
+| **Advanced Defender CSPM Features** | • **Attack Path Analysis:** AI-powered modeling of vulnerability chains to prioritize critical risks.<br>• **Cloud Security Explorer:** Graph-based query tool to proactively uncover and investigate cloud risks.<br>• **Governance:** Tools to assign remediation tasks, owners, and due dates to drive accountability.<br>• **Data Security Posture Management (DSPM):** Automatically discovers datastores with sensitive data and assesses their security posture.<br>• **AI Security Posture Management (AI SPM):** Maintains an AI Bill of Materials (AI BOM) and secures generative AI workloads against chained risks. |
+| **Security Copilot Integration** | Embeds AI assistance on recommendations pages to explain context, evaluate implementation effects, provide step-by-step remediation guidance, and remediate misconfigurations directly in code. |
+| **Foundational vs. Advanced Plan** | • **Foundational CSPM (Free):** Asset discovery, continuous assessment, MCSB compliance, and secure score.<br>• **Defender CSPM Plan (Paid):** Adds advanced capabilities like attack path analysis, cloud security explorer, governance, DSPM, and AI SPM. |
+
+### Microsoft Service Trust Portal (STP)
+
+| Concept / Area | Description |
+| :--- | :--- |
+| **What is the Service Trust Portal?** | Microsoft's public website for publishing audit reports, independent third-party audit reports, and whitepapers showing how Microsoft cloud services protect data and meet compliance standards. |
+| **Access** | Requires logging in as an authenticated user with a Microsoft cloud services account (Entra organizational account) to access certain resources. |
+| **1. Certifications, Regulations, and Standards** | Contains security implementation and design information designed to make it easier to meet regulatory compliance goals (e.g., ISO/IEC reports). |
+| **2. Reports, Whitepapers, and Artifacts** | General documents categorized into: **BCP & DR** (Business Continuity and Disaster Recovery), **Penetration Tests and Security Assessments**, **Privacy and Data Protection**, and **FAQs & Whitepapers**. |
+| **3. Industry and Regional Resources** | Tailored to specific sectors and regions: **Financial Services (FSI)**, **Healthcare and Life Sciences**, **Media and Entertainment**, **US Government**, and **Regional Resources** (compliance with local policies and regulations). |
+| **4. Resources for Your Organization** | Displays documents specific to your organization based on your tenant, subscriptions, and permissions. |
+| **My Library & Notifications** | Allows you to save relevant documents in one place by clicking the ellipsis menu (`...`). Can be configured to send **email notifications** whenever Microsoft updates your saved documents or series. |
+
+### Microsoft Data Protection & Privacy Principles
+
+| Area / Principle | Description |
+| :--- | :--- |
+| **1. You Control Your Data (Data Control)** | • Your data belongs to you; you can access, modify, or delete it at any time.<br>• Microsoft does **not** use your data for advertising, market research, or anything other than providing your chosen services without your explicit consent.<br>• Subprocessors and vendors are bound by the same strict contractual privacy obligations and are pre-audited.<br>• Complies with standards like **ISO/IEC 27018** (the world's first international code of practice for cloud privacy). |
+| **2. Know Where Your Data Is Located (Data Location)** | • Enables you to select services and geographical data residency across Azure, Dynamics 365, and Microsoft 365.<br>• Meets local data residency and compliance requirements within specific geographic boundaries, backed by contractual guarantees. |
+| **3. Your Data Is Secured at Rest and in Transit (Data Security)** | • **Data at Rest:** Protected using advanced encryption options up to **AES-256**.<br>• **Data in Transit:** Uses industry-standard secure transport protocols such as **TLS** and **IPsec** with two or more independent encryption layers.<br>• **Key Management:** Microsoft-managed keys are properly secured, and customers retain control over keys and secrets using **Azure Key Vault**. |
+| **4. Microsoft Defends Your Data (Data Protection)** | • Government and law enforcement requests for customer data must generally be directed to the customer—Microsoft **never** provides governments with direct or unvetted access.<br>• Microsoft reviews all requests for legal validity, notifies the customer (where legally permitted), and will, when necessary, **challenge unlawful government demands in court**. |
