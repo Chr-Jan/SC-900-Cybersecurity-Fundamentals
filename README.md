@@ -723,6 +723,25 @@ What is common between all Microsoft Entra choices is:
 | **Security Copilot Integration** | Embeds AI assistance on recommendations pages to explain context, evaluate implementation effects, provide step-by-step remediation guidance, and remediate misconfigurations directly in code. |
 | **Foundational vs. Advanced Plan** | • **Foundational CSPM (Free):** Asset discovery, continuous assessment, MCSB compliance, and secure score.<br>• **Defender CSPM Plan (Paid):** Adds advanced capabilities like attack path analysis, cloud security explorer, governance, DSPM, and AI SPM. |
 
+### Enhanced Security & Workload Protection (CWPP)
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is CWPP?** | The pillar of Microsoft Defender for Cloud dedicated to detecting and resolving threats to resources, workloads, and services through specific **Microsoft Defender Plans**. |
+| **Key Microsoft Defender Plans** | • **Defender for servers:** Adds threat detection, advanced defenses, and EDR via Defender for Endpoint.<br>• **Defender for App Service:** Identifies attacks targeting web applications.<br>• **Defender for Storage:** Detects harmful activity on Azure Storage accounts.<br>• **Defender for Databases:** Protects Azure SQL, open-source databases, and Cosmos DB.<br>• **Defender for Containers:** Cloud-native security for Kubernetes, hardening, and runtime threat detection.<br>• **Defender for Key Vault:** Advanced threat protection for secrets and keys.<br>• **Defender for Resource Manager:** Monitors resource management operations.<br>• **Defender for AI Services:** Protects AI workloads against prompt injection, data leakage, poisoning, and credential theft.<br>• **Defender for APIs:** Secures business-critical APIs and prioritizes vulnerability fixes. |
+| **Enhanced Security Features** | • **Comprehensive EDR:** Integrated endpoint detection and response via Defender for Endpoint.<br>• **Vulnerability Scanning:** Built-in scanning for VMs, container registries, and SQL resources.<br>• **Multicloud & Hybrid Security:** Extends protection to AWS, GCP, and on-premises hybrid workloads with unified policy enforcement.<br>• **Threat Protection Alerts:** Monitors networks, machines, and cloud services for incoming and post-breach attacks.<br>• **Access & Application Controls:** Includes Just-In-Time (JIT) VM access and adaptive application controls to block unwanted apps and reduce brute-force exposure. |
+| **Protecting AI Workloads** | Leverages Microsoft Threat Intelligence and Azure AI Content Safety Prompt Shields to monitor generative AI services in real time, detecting prompt injection, data leakage, data poisoning, and credential theft. Alerts integrate directly with Microsoft Defender XDR. |
+
+### DevOps Security Management (Defender for DevOps)
+
+| Feature / Aspect | Description |
+| :--- | :--- |
+| **What is Defender for DevOps?** | A service in Microsoft Defender for Cloud that empowers security teams to manage and secure DevOps environments across multi-pipeline platforms (GitHub, Azure DevOps, GitLab) from code to cloud. |
+| **Core Capabilities** | • **Unified Visibility:** Centralized view of pre-production code posture, inventories, code scanning findings, exposed secrets, and open-source software (OSS) dependencies.<br>• **IaC Template Hardening:** Assesses Infrastructure as Code (IaC) templates to minimize cloud misconfigurations before resources ever reach production.<br>• **Prioritized Remediation:** Leverages pull request annotations and custom workflows to assign developer ownership and fix issues directly in code. |
+| **Security Overview Metrics** | Surfaces high-level metrics across key risk dimensions: **Code scanning vulnerabilities**, **Exposed secrets** (API keys/credentials), **Open-source software (OSS) vulnerabilities**, and **Environment recommendations**. |
+| **AI Development Pipelines** | Protects AI application workflows by catching exposed AI service API keys and insecure infrastructure templates during development before they reach production. |
+| **Code-to-Cloud Integration** | Integrates DevOps findings into the broader Defender for Cloud platform (CSPM). Allows security teams to trace production risks back to their exact source in code and incorporate code vulnerabilities into **Attack Path Analysis**. |
+
 ### Microsoft Service Trust Portal (STP)
 
 | Concept / Area | Description |
